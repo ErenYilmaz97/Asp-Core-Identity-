@@ -20,6 +20,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace AspNetCoreIdentity
 {
+    //STARTUP
     public class Startup
     {
 
