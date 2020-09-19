@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+@model RoleAssignModel
+@{
+    ViewData["Title"] = "RoleAssign";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h4 class="text-center">@Model.Username Kullanıcısı İçin Rol Atama</h4>
+<hr/>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        
+        <form asp-controller="Admin" asp-action="RoleAssign" method="post">
+
+            @for (int i = 0; i < @Model.Roles.Count; i++)
+            {
+                <div class="form-check">
+                    <input asp-for="Roles[i].Exist" type="checkbox" class="form-check-input" />
+                    <label asp-for="Roles[i].RoleID" class="control-label">@Model.Roles[i].RoleName</label>
+
+
+                    <input asp-for="Roles[i].RoleID" type="hidden" />
+                    <input asp-for="Roles[i].RoleName" type="hidden" />
+                    <input asp-for="UserID" type="hidden"/>
+                    <input asp-for="Username" type="hidden"/>
+
+                </div>
+            }
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-success mt-2">Rol Ata</button>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+

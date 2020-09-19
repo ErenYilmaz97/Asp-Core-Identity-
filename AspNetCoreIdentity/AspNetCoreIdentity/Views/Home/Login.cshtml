@@ -1,0 +1,44 @@
+﻿@model AspNetCoreIdentity.Models.LoginModel
+
+
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h5 class="text-center mt-3">Giriş Yap</h5>
+            <hr />
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control"/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="checkbox" asp-for="RememberMe" class="ml-1" /> Beni Hatırla
+                        </div>
+                        <div class="col-md-4">
+                            <a asp-action="ForgetPassword" class="mr-0">Şifremi Unuttum</a>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Giriş" class="btn btn-outline-primary"/>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+
+

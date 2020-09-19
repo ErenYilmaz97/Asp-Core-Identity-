@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Index" asp-controller="Member">Kullanıcı Anasayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-action="Index" asp-controller="Admin">Admin Anasayfa</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            @RenderBody()
+        </div>
+        <div class="col-md-4 mt-3">
+            <h5 class="text-center">Menü</h5>
+            <a class="btn btn-danger btn-block  mt-3" asp-action="ViolencePage" asp-controller="Member">Şiddet İçerikleri</a>
+            <a class="btn btn-danger btn-block" asp-action="AnkaraPage" asp-controller="Member">Şehir Sayfası</a>
+            <a class="btn btn-danger btn-block" asp-action="ExchangeRedirect" asp-controller="Member">Borsa Sayfası</a>
+            <a class="btn btn-info btn-block" asp-action="ChangePassword" asp-controller="Member">Şifre Değiştir</a>
+            <a class="btn btn-info btn-block" asp-action="UserEdit" asp-controller="Member">Bilgilerini Güncelle</a>
+            <a class="btn btn-info btn-block" asp-action="Logout" asp-controller="Member" asp-route-returnUrl="/Home/Login">Çıkış Yap</a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+<script src="~/lib/jquery/jquery.js"></script>
+<link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

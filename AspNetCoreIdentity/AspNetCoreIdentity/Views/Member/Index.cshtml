@@ -1,0 +1,93 @@
+﻿@model UserInfoModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+}
+
+
+
+    <div class="row">
+        <div class="col-md-4 text-right">
+            @{
+                if (String.IsNullOrEmpty(Model.Picture))
+                {
+                    <img src="Pictures/usericon.png" />
+                }
+                else
+                {
+                    <img src="@Model.Picture"/>
+                }
+            }
+
+
+
+        </div>
+            <div class="col-md-8 mt-2">
+                <strong style="font-size: 30px">Kullanıcı Bilgileri</strong>
+            </div>
+        </div>
+
+        <hr/>
+        <table class="table table-hover table-striped table-primary mt-3">
+
+            <tr>
+                <th>UserName</th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>@{
+                        if (!String.IsNullOrEmpty(Model.PhoneNumber))
+                        {
+                            @Model.PhoneNumber
+                        }
+                        else
+                        {
+                            <span>Belirtilmemiş</span>
+                        }
+                    }</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>
+                    @{
+                        if (!String.IsNullOrEmpty(Model.City))
+                        {
+                            @Model.City
+                        }
+                        else
+                        {
+                            <span>Belirtilmemiş</span>
+                        }
+
+                    }
+</tr>
+            <tr>
+                <th>BirthDay</th>
+                <td>
+                    @{
+                        if (Model.BirthDay == null)
+                        {
+                            <p>Belirtilmemiş</p>
+                        }
+                        else
+                        {
+                            @Model.BirthDay.Value.ToShortDateString();
+                        }
+
+                                }
+</tr>
+            <tr>
+                <th>Gender</th>
+                <td>@Model.Gender</td>
+            </tr>
+
+        </table>
+   
+    
+    

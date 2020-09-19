@@ -1,0 +1,40 @@
+﻿@model List<GetUsersModel>
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h4 class="text-center">Kullanıcılar</h4>
+<hr/>
+
+<table class="table table-hover mt-5">
+    <thead>
+    <th class="text-center">User</th>
+    <th class="text-center">City</th>
+    <th class="text-center">Gender</th>
+    <th class="text-center">Rol Assign</th>
+    <th style="width: 15%" class="text-center">Rols</th>
+    </thead>
+    <tbody>
+    
+        @foreach (var user in Model)
+        {   <tr>
+                <td class="text-center">@user.UserName</td>
+                <td class="text-center">@{
+                                        if (user.City == null)
+                                        {
+                                            <p>Belirtilmemiş</p>
+                                        }
+                                        else
+                                        {
+                                            @user.City
+                                        }
+                                    }</td>
+                <td class="text-center">@user.Gender</td>
+                <td class="text-center"><a class="btn btn-sm btn-outline-success" href="~/Admin/RoleAssign?UserID=@user.Id">Rol Ata</a></td>
+
+                <td class="text-center" user-roles="@user.Id"></td>
+            </tr>
+        }
+    </tbody>
+</table>

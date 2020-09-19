@@ -1,0 +1,29 @@
+﻿@using AspNetCoreIdentity.Entity.Entities
+@model List<AspNetCoreIdentity.Entity.Entities.AppRole>
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h4 class="text-center">Roller</h4>
+<hr />
+<a class="btn btn-danger btn-sm" asp-action="CreateRole">Rol Ekle</a>
+
+<table class="table table-bordered table-hover mt-3 rounded">
+    <tr>
+        <td>Rol Adı</td>
+        <td>Sil</td>
+        <td>Güncelle</td>
+    </tr>
+   
+        @foreach (AppRole role in Model)
+        {
+        <tr>
+            <td>@role.Name</td>
+            <td style="width: 10%"><a class="btn btn-sm btn-outline-danger" href="~/Admin/RoleDelete?RoleID=@role.Id">Sil</a></td>
+            <td style="width: 10%"><a class="btn btn-sm btn-outline-primary" href="~/Admin/RoleUpdate?RoleID=@role.Id">Güncelle</a></td>
+        </tr>
+        }
+    
+</table>
+

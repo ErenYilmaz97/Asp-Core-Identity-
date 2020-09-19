@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "AccessDenied";
+    if (ViewBag.layout == "admin")
+    {
+        Layout = "~/Views/Admin/_AdminLayout.cshtml";
+    }
+    else if(ViewBag.layout =="member")
+    {
+        Layout = "~/Views/Member/_MemberLayout.cshtml";
+    }
+
+}
+
+<div class="alert alert-danger mt-5">
+    @ViewBag.message
+</div>
+

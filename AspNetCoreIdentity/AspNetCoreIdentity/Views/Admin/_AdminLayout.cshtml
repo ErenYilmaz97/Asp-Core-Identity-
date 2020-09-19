@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-action="Index" asp-controller="Admin">Admin Anasayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-action="Index" asp-controller="Member">Member Anasayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-action="EditorPage" asp-controller="Member">Editör</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-action="ManagerPage" asp-controller="Member">Manager</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            @RenderBody()
+        </div>
+        <div class="col-md-4">
+            <h5 class="text-center">Menü</h5>
+            <a class="btn btn-danger btn-block" asp-action="Users" asp-controller="Admin">Kullanıcılar</a>
+            <a class="btn btn-danger btn-block" asp-action="Roles" asp-controller="Admin">Roller</a>
+            <a class="btn btn-danger btn-block" asp-action="Claims" asp-controller="Admin">Claims</a>
+            <a class="btn btn-danger btn-block" asp-action="Logout" asp-controller="Member" asp-route-returnUrl="/Home/Login">Çıkış Yap</a>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+<script src="~/lib/jquery/jquery.js"></script>
+<link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
